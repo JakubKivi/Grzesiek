@@ -1,0 +1,28 @@
+Bluetooth
+-Has³o
+- Jazda przód lewo prawo i obroty
+- Zapalanie œwiate³
+- Regulacja prêdkoœci
+- Obroty serwem
+- Wyœwietlanie baterii
+- Wyœwietlanie odleg³oœci
+- Pokazywanie statusów
+- Obracanie suwakiem
+- Opcja puszczenia auto
+- Opcja jazdy na akcelerometrach
+Wyœwietlacz
+ - Has³o
+- Pokazywanie statusów
+- Jakaœ gierka
+- Drobne zmienianie dzia³ania programu (pseudosystem)
+Automat
+- Omijanie przeszkód
+- Zapisywanie gdzie s¹ przeszkody
+- Je¿d¿enie po podaniu odleg³oœci
+
+
+Future
+- Mówienie
+- Mapowanie pomieszczeñ
+- Dzia³anie na pilota IR
+ 
