@@ -16,3 +16,14 @@ void error(int number, String errorName){
     }
 }
 
+int survey(){
+
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(1);
+  digitalWrite(trig, LOW);
+  
+  return pulseIn(echo, HIGH)/ 58;
+}
+
+
+

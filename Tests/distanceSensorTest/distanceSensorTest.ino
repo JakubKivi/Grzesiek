@@ -10,10 +10,8 @@ void setup() {
 void loop() {
   long czas, dystans;
  
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
   digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
+  delayMicroseconds(1);
   digitalWrite(trigPin, LOW);
  
   czas = pulseIn(echoPin, HIGH);
