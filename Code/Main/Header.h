@@ -25,6 +25,9 @@ char data[100];
 byte dataIndex;
 char sign;                //zmienne do bluetooth
 
+bool RPassword = 0;
+bool remote = 0;
+
 bool FR = 0;
 bool FL = 0;
 bool BR = 0;
@@ -49,6 +52,8 @@ Password password = Password( "1337" );   //ustalam hasło
 void Setup(){
     Serial1.begin(9600);
     servo.attach(11);
+
+    lcd.begin(16, 2);
     
     int myEraser = 7;             
     TCCR2B &= ~myEraser;   
@@ -80,7 +85,7 @@ void Setup(){
     pinMode(LP , OUTPUT);
     pinMode(LT , OUTPUT);
     pinMode(SPEEDP , OUTPUT);
-    pinMode(SPEEDL , OUTPUT); //silniki jakow yjscia
+    pinMode(SPEEDL , OUTPUT); //silniki jako wyjscia
 
     pinMode(trig, OUTPUT);
     pinMode(echo, INPUT);
