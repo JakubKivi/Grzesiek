@@ -1,16 +1,9 @@
 void error(int number, String errorName){
-      digitalWrite(PP, LOW);
-      digitalWrite(PT, LOW);
-      digitalWrite(LP, LOW);
-      digitalWrite(LT, LOW);
+    digitalWrite(PP, LOW);
+    digitalWrite(PT, LOW);
+    digitalWrite(LP, LOW);
+    digitalWrite(LT, LOW);
 
-      digitalWrite(LIGHTP, LOW);
-      digitalWrite(LIGHTL, LOW);
-      digitalWrite(tLIGHTP, LOW);
-      digitalWrite(tLIGHTL, LOW); //zatrzymaj wszystko
-            
-      
-    
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print("ERROR ");

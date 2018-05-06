@@ -4,7 +4,7 @@ LiquidCrystal lcd(52, 50, 48, 46, 44, 42);
 
 void setup(){
   lcd.begin(16, 2);
-  lcd.print("hello, world!");
+  lcd.print("Elo, dzialam se");
 }
 
 void loop(){

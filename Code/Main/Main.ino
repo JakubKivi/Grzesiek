@@ -3,25 +3,26 @@
 #include <LiquidCrystal.h>    //biblioteka do wyświetlacza
 #include <Servo.h>            //biblioteka do serwa
 
-#define zblizeniowy 1       //czujnik zbliżeniowy
-#define triger      2
-#define echo        3       //trigger i echo do czujnika dźwiękowego
-#define PP          4
-#define PT          5
-#define LP          6
-#define LT          7
-#define SPEEDP      8
-#define SPEEDL      9
-#define LIGHTP      10
-#define LIGHTL      11
-#define tLIGHTP     12
-#define tLIGHTL     13
-#define buzz        14
-#define infoD       15
-#define pinServo    16
+#define prox        38       //czujnik zbliżeniowy
+#define trig        36
+#define echo        34      //trigger i echo do czujnika dźwiękowego
+#define PP          2
+#define PT          3
+#define LP          4
+#define LT          5
+#define SPEEDP      6
+#define SPEEDL      7       //silniki
+#define lPP         47
+#define lLP         51
+#define lPT         37
+#define lLT         33      //światła
+#define eyeL        41
+#define eyeP        43      //światła u góry
+#define buzz        13
+#define pinServo    11
 
 
-LiquidCrystal lcd(22, 24, 26, 28, 30, 32);    //definiuje gdzie wpiąłem wyświetlacz
+LiquidCrystal lcd(52, 50, 48, 46, 44, 42);    //definiuje gdzie wpiąłem wyświetlacz
 Servo servo;                     //definiuje nazwe serwa
 
 const byte ROWS = 4; // 4 wiersze
@@ -32,8 +33,8 @@ char keys[ROWS][COLS] = {
   {'7', '8', '9', 'C'},
   {'*', '0', '#', 'D'}
 };                    //opisuję układ klawiszy na keypadzie
-byte rowPins[ROWS] = {14, 15, 16, 17}; //definiuje gdzie podpiąłem wiersze
-byte colPins[COLS] = {18, 19, 20, 21}; //definiuje gdzie podpiąłem kolumny
+byte rowPins[ROWS] = {32, 30, 28, 26}; //definiuje gdzie podpiąłem wiersze
+byte colPins[COLS] = {24, 22, 23, 25}; //definiuje gdzie podpiąłem kolumny
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS ); //jakieś opisanie do klawiaturki
 Password password = Password( "1337" );   //ustalam hasło
 
@@ -42,37 +43,21 @@ void setup() {
     TCCR2B &= ~myEraser;   
     int myPrescaler = 1;          
     TCCR2B |= myPrescaler;    //zmieniam częstotliwość PWM dziękiczemu silniki nie piszczą
-    
-    Serial.begin(9600);   //rozpoczynam komunikacje
-    
-    servo.attach(pinServo);         //ustalam serwo na swój pin
-    servo.write(90);           //ustawiam na 90 
 
-    pinMode (PP, OUTPUT);
-    pinMode (PT, OUTPUT);
-    pinMode (LP, OUTPUT);
-    pinMode (LT, OUTPUT);
-
-    digitalWrite(PP, LOW);
-    digitalWrite(PT, LOW);
-    digitalWrite(LP, LOW);
-    digitalWrite(LT, LOW);
-
-    analogWrite(SPEEDP, 200);
-    analogWrite(SPEEDL, 200);     //deklaruje wszystko do pinów z silnika
+    pinMode(53, OUTPUT);
+    digitalWrite(53, LOW);
+    pinMode(53, OUTPUT);
+    digitalWrite(49, LOW);
+    pinMode(49, OUTPUT);
+    digitalWrite(45, LOW);
+    pinMode(45, OUTPUT);
+    digitalWrite(39, LOW);
+    pinMode(39, OUTPUT);
+    digitalWrite(35, LOW);
+    pinMode(35, OUTPUT);    //deklaruje ziemie dla diod
     
-    lcd.begin (16, 2);    //rozpoczynam wyświelacz 16x2
-    lcd.setCursor(5, 0);
-    lcd.print("MANUAL");
-    lcd.setCursor(6, 1);
-    lcd.print("MODE");   //piszę manual mode
-   
-    keypad.addEventListener(onClick);
 }
 
 void loop() {  
-  if(Serial.available() > 0){
-    
-  }
-
+  
 }
