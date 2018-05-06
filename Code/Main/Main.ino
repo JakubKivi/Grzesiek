@@ -1,9 +1,10 @@
 #include "Header.h"
 
 void setup() {
-    Setup;
+    Setup();
 }
+
 void loop() {  
-    if(Serial1.available() > 0) bluetooth;
-    else local;
+    if(Serial1.available() > 0) bluetooth();
+    else local();
 }

@@ -25,6 +25,11 @@ char data[100];
 byte dataIndex;
 char sign;                //zmienne do bluetooth
 
+bool FR = 0;
+bool FL = 0;
+bool BR = 0;
+bool BL = 0;        //zmienne przechowujace czy pala sie swiatla
+
 LiquidCrystal lcd(52, 50, 48, 46, 44, 42);    //definiuje gdzie wpiąłem wyświetlacz
 Servo servo;                     //definiuje nazwe serwa
 
@@ -43,11 +48,12 @@ Password password = Password( "1337" );   //ustalam hasło
 
 void Setup(){
     Serial1.begin(9600);
-   
+    servo.attach(11);
+    
     int myEraser = 7;             
     TCCR2B &= ~myEraser;   
     int myPrescaler = 1;          
-    TCCR2B |= myPrescaler;    //zmieniam częstotliwość PWM dziękiczemu silniki nie piszczą
+    TCCR2B |= myPrescaler;    //zmieniam częstotliwość PWM dziękiczemu silniki nie piszczą(nie do konca wiem jak)
 
     pinMode(53, OUTPUT);
     digitalWrite(53, LOW);
@@ -79,8 +85,6 @@ void Setup(){
     pinMode(trig, OUTPUT);
     pinMode(echo, INPUT);
     pinMode(prox , INPUT);   //czyjniki jako wejscie
-
-    servo.attach(11);
 }
 
 #include "Keyboard.h"
